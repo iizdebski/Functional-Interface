@@ -1,0 +1,68 @@
+2. Functional Interfaces and Lambda Expressions
+
+Functional interfaces are new editions in Java 8 which permit exactly one abstract
+method inside them. These interfaces are also called Single Abstract Method
+interfaces (SAM Interfaces). These can be represented using Lambda expressions,
+Method reference and constructor references as well. Java 8 introduces an
+annotation is called @FunctionalInterface, which can be used for compiler
+level errors when the interface you have annotated violates the contracts of
+Functional Interface.
+
+You can think of it like @Override annotation and it's best practice to use it.
+java.lang.RTunnable with single abstract method run() is a great example of
+functional interface.
+
+One of the major benefits of functional interface is the possibility to use lambda
+expressions to initiate them. We can instantiate an interface with anonymous
+class but the code looks bulky.
+
+Runnable r = new Runnable(){
+@Override
+public void run(){
+System.out.printIn("My Runnable");
+}};
+
+Since functional interfaces have only one method, lambda expressions can
+easily provide the method implementation. We just need to provide method
+arguments and business logic. For example, we can write above
+implementation using lambda expression as:
+
+Runnable r1 = () -> {
+              System.out.printIn("My Runnable");
+                 };
+
+A new package java.util.function has been added with bunch of functional
+interfaces to provide target types for lambda expressions and method
+references.
+
+Some key points about functional interface 1
+
+Functional interface is also called Single Abstract Method interface (SAM
+Interface)
+The Interface can also declare the abstract methods from the
+java.lang.Object class, but still the Interface can be called as a Functional
+Interface.
+Once you add another abstract method to the interface then the
+compiler/IDE will flag it as an error.
+Interface can extend another interface and in case the Interface is
+extending a functional interface and it doesn't declare any new abstract
+methods then the new functional Interface is also functional But an Interface can have
+one abstract method and any number of default methods and the interface
+would still be called as functional interface.
+
+Some key points about functional Interface
+
+List of functional interfaces defined in java.util.function package.
+only one abstract method is allowed in any functional interface. Second
+abstract method is not permitted in a functional interface. If we
+remove @FunctionalInterface annotation then we are allowed to add
+another abstract method, but it will make the interface non-functional
+interface.
+A functional interface is valid even if the @FunctionalInterface
+annotation would be omitted. It is only for informing the compiler
+to enforce single abstract method inside interface.
+Conceptually, a functional interface has exactly one abstract method.
+Since default methods are not abstract you are free to add default methods
+to your functional interface as many as you like.
+Instances of functional interfaces can be created with lambda expressions,
+method references, or constructor references.
