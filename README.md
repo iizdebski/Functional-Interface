@@ -1,3 +1,1 @@
 # Functional-Interface
-
-Functional Interface
